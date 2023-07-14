@@ -1,0 +1,36 @@
+﻿<Window x:Class="easyeda_importer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:easyeda_importer"
+        mc:Ignorable="d"
+        Title="EasyEDA Importer" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <HeaderedContentControl Header="KiCad Path" Margin="5">
+                <TextBox Text="{Binding KiCadPath}" />
+            </HeaderedContentControl>
+            <HeaderedContentControl Header="Library Path" Margin="5">
+                <TextBox Text="{Binding LibraryPath}" />
+            </HeaderedContentControl>
+            <HeaderedContentControl Header="LCSC IDs (getrennt mit Leerzeichen)" Margin="5">
+                <TextBox Text="{Binding LcscIds}" />
+            </HeaderedContentControl>
+            <HeaderedContentControl Header="Importiere" Margin="5">
+                <StackPanel Orientation="Vertical">
+                    <CheckBox IsChecked="{Binding ImportSymbol}" Content="Symbol" />
+                    <CheckBox IsChecked="{Binding ImportFootprint}" Content="Footprint" />
+                    <CheckBox IsChecked="{Binding ImportModel}" Content="3D Model" />
+                </StackPanel>
+            </HeaderedContentControl>
+            <Button Content="Start Import" Click="ClickStart" IsEnabled="{Binding CanDownload}" Margin="5" />
+        </StackPanel>
+
+        <TextBlock Grid.Row="2" Text="{Binding Output}" />
+    </Grid>
+</Window>
