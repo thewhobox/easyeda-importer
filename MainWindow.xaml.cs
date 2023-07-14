@@ -122,6 +122,8 @@ namespace easyeda_importer
                 p.StartInfo.Arguments = "clone https://github.com/uPesy/easyeda2kicad.py " + System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "easyeda2kicad.py");
                 p.StartInfo.RedirectStandardOutput = true;
                 p.StartInfo.RedirectStandardError = true;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 p.Start();
                 ReadOutput(p);
                 ReadError(p);
@@ -139,6 +141,8 @@ namespace easyeda_importer
                 p.StartInfo.Arguments = "setup.py install";
                 p.StartInfo.RedirectStandardOutput = true;
                 p.StartInfo.RedirectStandardError = true;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 p.Start();
                 ReadOutput(p);
                 ReadError(p);
@@ -168,6 +172,8 @@ namespace easyeda_importer
                 p.StartInfo.Arguments = $"-m easyeda2kicad {downloadtype}--lcsc_id={id}{lib}";
                 p.StartInfo.RedirectStandardOutput = true;
                 p.StartInfo.RedirectStandardError = true;
+                p.StartInfo.CreateNoWindow = true;
+                p.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                 p.Start();
                 ReadOutput(p);
                 ReadError(p);
